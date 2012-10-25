@@ -111,7 +111,14 @@
     
     NSString *expected = @"Man is distinguished, not only by his reason, but by this singular passion from other animals, which is a lust of the mind, that by a perseverance of delight in the continued and indefatigable generation of knowledge, exceeds the short vehemence of any carnal pleasure.";
     NSString *result = [b64Test decodeBase64AsString:&error];
-    STAssertEqualObjects(expected, result, @"Wikipedia example");
+    STAssertEqualObjects(expected, result, @"Decoding Wikipedia example");
+    
+    
+    NSString *tmp = [expected encodeAsBase64UsingLineEndings:YES error:&error];
+    STAssertEqualObjects(tmp, b64Test, @"Encoding Wikipedia example");
+    
+    NSString *tmp2 = [expected encodeAsBase64UsingLineEndings:NO error:&error];
+    STAssertTrue(![tmp2 isEqualToString:b64Test], @"Encoding Wikipedia example without formatting");
     
 }
 
