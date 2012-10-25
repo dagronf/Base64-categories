@@ -123,10 +123,17 @@ MIG_Result MIG_encodeAsBase64(int useOptionalLineEndings,
                               unsigned int *resultLen)
 {
     // Check special case
-    if (sArr == NULL || sLen == 0)
+    if (sArr == NULL)
     {
-        // Special case -- just empty
+        // Special case -- shouldn't deal with it
         return MIG_InputDataEmpty;
+    }
+    else if (sLen == 0)
+    {
+        // Empty string -- return empty string according to RFC
+        *result = (char *)calloc(1, sizeof(char));
+        *resultLen = 0;
+        return MIG_OK;
     }
     
     int eLen = (sLen / 3) * 3;              // Length of even 24-bits.
@@ -195,9 +202,16 @@ MIG_Result MIG_decodeAsBase64(const char *sArr,
                               unsigned char **result,
                               unsigned int *resultLen)
 {
-    if (sArr == NULL || sLen == 0)
+    if (sArr == NULL)
     {
         return MIG_Base64StringEmpty;
+    }
+    else if (sLen == 0)
+    {
+        // Empty string -- return empty string according to RFC
+        *result = (unsigned char *)calloc(1, sizeof(unsigned char));
+        *resultLen = 0;
+        return MIG_OK;
     }
     
     // Count illegal characters (including '\r', '\n') to know what size the returned array will be,
@@ -282,7 +296,7 @@ MIG_Result MIG_decodeAsBase64Fast(const char *sArr,
                                   unsigned int *resultLen)
 {
     // Check special case
-    if (sLen == 0)
+    if (sArr == NULL)
         return MIG_InputDataEmpty;
     
     int sIx = 0, eIx = sLen - 1;    // Start and end index after trimming.
