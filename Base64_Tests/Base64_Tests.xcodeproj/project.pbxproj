@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		232E92CF1638BA2C002EAE54 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232E92CE1638BA2B002EAE54 /* Cocoa.framework */; };
+		232E92D91638BA2C002EAE54 /* Base64_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232E92D81638BA2C002EAE54 /* Base64_Tests.m */; };
+		232E92E11638BA2C002EAE54 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232E92E01638BA2C002EAE54 /* SenTestingKit.framework */; };
+		232E92E21638BA2C002EAE54 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232E92CE1638BA2B002EAE54 /* Cocoa.framework */; };
+		232E92E51638BA2C002EAE54 /* libBase64_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 232E92CB1638BA2B002EAE54 /* libBase64_Tests.a */; };
+		232E92EB1638BA2C002EAE54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 232E92E91638BA2C002EAE54 /* InfoPlist.strings */; };
+		232E92EE1638BA2C002EAE54 /* Base64_TestsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232E92ED1638BA2C002EAE54 /* Base64_TestsTests.m */; };
+		232E92FC1638BA5C002EAE54 /* Base64+categories.h in Headers */ = {isa = PBXBuildFile; fileRef = 232E92F81638BA5C002EAE54 /* Base64+categories.h */; };
+		232E92FD1638BA5C002EAE54 /* Base64+categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 232E92F91638BA5C002EAE54 /* Base64+categories.m */; };
+		232E92FE1638BA5C002EAE54 /* MIGConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = 232E92FA1638BA5C002EAE54 /* MIGConverter.c */; };
+		232E92FF1638BA5C002EAE54 /* MIGConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 232E92FB1638BA5C002EAE54 /* MIGConverter.h */; };
+		232E93001638BB6C002EAE54 /* Base64+categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 232E92F91638BA5C002EAE54 /* Base64+categories.m */; };
+		232E93011638BB6C002EAE54 /* MIGConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = 232E92FA1638BA5C002EAE54 /* MIGConverter.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		232E92E31638BA2C002EAE54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 232E92C21638BA2B002EAE54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 232E92CA1638BA2B002EAE54;
+			remoteInfo = Base64_Tests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		232E92CB1638BA2B002EAE54 /* libBase64_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBase64_Tests.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		232E92CE1638BA2B002EAE54 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		232E92D11638BA2C002EAE54 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		232E92D21638BA2C002EAE54 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		232E92D31638BA2C002EAE54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		232E92D61638BA2C002EAE54 /* Base64_Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Base64_Tests-Prefix.pch"; sourceTree = "<group>"; };
+		232E92D71638BA2C002EAE54 /* Base64_Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base64_Tests.h; sourceTree = "<group>"; };
+		232E92D81638BA2C002EAE54 /* Base64_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base64_Tests.m; sourceTree = "<group>"; };
+		232E92DF1638BA2C002EAE54 /* Base64_TestsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Base64_TestsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		232E92E01638BA2C002EAE54 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		232E92E81638BA2C002EAE54 /* Base64_TestsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Base64_TestsTests-Info.plist"; sourceTree = "<group>"; };
+		232E92EA1638BA2C002EAE54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		232E92EC1638BA2C002EAE54 /* Base64_TestsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base64_TestsTests.h; sourceTree = "<group>"; };
+		232E92ED1638BA2C002EAE54 /* Base64_TestsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base64_TestsTests.m; sourceTree = "<group>"; };
+		232E92F81638BA5C002EAE54 /* Base64+categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Base64+categories.h"; path = "../Base64+categories.h"; sourceTree = "<group>"; };
+		232E92F91638BA5C002EAE54 /* Base64+categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Base64+categories.m"; path = "../Base64+categories.m"; sourceTree = "<group>"; };
+		232E92FA1638BA5C002EAE54 /* MIGConverter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MIGConverter.c; path = ../MIGConverter.c; sourceTree = "<group>"; };
+		232E92FB1638BA5C002EAE54 /* MIGConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIGConverter.h; path = ../MIGConverter.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		232E92C81638BA2B002EAE54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232E92CF1638BA2C002EAE54 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232E92DB1638BA2C002EAE54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232E92E11638BA2C002EAE54 /* SenTestingKit.framework in Frameworks */,
+				232E92E21638BA2C002EAE54 /* Cocoa.framework in Frameworks */,
+				232E92E51638BA2C002EAE54 /* libBase64_Tests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		232E92C01638BA2B002EAE54 = {
+			isa = PBXGroup;
+			children = (
+				232E92F71638BA4B002EAE54 /* Base64 classes */,
+				232E92D41638BA2C002EAE54 /* Base64_Tests */,
+				232E92E61638BA2C002EAE54 /* Base64_TestsTests */,
+				232E92CD1638BA2B002EAE54 /* Frameworks */,
+				232E92CC1638BA2B002EAE54 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		232E92CC1638BA2B002EAE54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				232E92CB1638BA2B002EAE54 /* libBase64_Tests.a */,
+				232E92DF1638BA2C002EAE54 /* Base64_TestsTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		232E92CD1638BA2B002EAE54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				232E92CE1638BA2B002EAE54 /* Cocoa.framework */,
+				232E92E01638BA2C002EAE54 /* SenTestingKit.framework */,
+				232E92D01638BA2C002EAE54 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		232E92D01638BA2C002EAE54 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				232E92D11638BA2C002EAE54 /* AppKit.framework */,
+				232E92D21638BA2C002EAE54 /* CoreData.framework */,
+				232E92D31638BA2C002EAE54 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		232E92D41638BA2C002EAE54 /* Base64_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				232E92D71638BA2C002EAE54 /* Base64_Tests.h */,
+				232E92D81638BA2C002EAE54 /* Base64_Tests.m */,
+				232E92D51638BA2C002EAE54 /* Supporting Files */,
+			);
+			path = Base64_Tests;
+			sourceTree = "<group>";
+		};
+		232E92D51638BA2C002EAE54 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				232E92D61638BA2C002EAE54 /* Base64_Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		232E92E61638BA2C002EAE54 /* Base64_TestsTests */ = {
+			isa = PBXGroup;
+			children = (
+				232E92EC1638BA2C002EAE54 /* Base64_TestsTests.h */,
+				232E92ED1638BA2C002EAE54 /* Base64_TestsTests.m */,
+				232E92E71638BA2C002EAE54 /* Supporting Files */,
+			);
+			path = Base64_TestsTests;
+			sourceTree = "<group>";
+		};
+		232E92E71638BA2C002EAE54 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				232E92E81638BA2C002EAE54 /* Base64_TestsTests-Info.plist */,
+				232E92E91638BA2C002EAE54 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		232E92F71638BA4B002EAE54 /* Base64 classes */ = {
+			isa = PBXGroup;
+			children = (
+				232E92F81638BA5C002EAE54 /* Base64+categories.h */,
+				232E92F91638BA5C002EAE54 /* Base64+categories.m */,
+				232E92FA1638BA5C002EAE54 /* MIGConverter.c */,
+				232E92FB1638BA5C002EAE54 /* MIGConverter.h */,
+			);
+			name = "Base64 classes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		232E92C91638BA2B002EAE54 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232E92FC1638BA5C002EAE54 /* Base64+categories.h in Headers */,
+				232E92FF1638BA5C002EAE54 /* MIGConverter.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		232E92CA1638BA2B002EAE54 /* Base64_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232E92F11638BA2C002EAE54 /* Build configuration list for PBXNativeTarget "Base64_Tests" */;
+			buildPhases = (
+				232E92C71638BA2B002EAE54 /* Sources */,
+				232E92C81638BA2B002EAE54 /* Frameworks */,
+				232E92C91638BA2B002EAE54 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Base64_Tests;
+			productName = Base64_Tests;
+			productReference = 232E92CB1638BA2B002EAE54 /* libBase64_Tests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		232E92DE1638BA2C002EAE54 /* Base64_TestsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232E92F41638BA2C002EAE54 /* Build configuration list for PBXNativeTarget "Base64_TestsTests" */;
+			buildPhases = (
+				232E92DA1638BA2C002EAE54 /* Sources */,
+				232E92DB1638BA2C002EAE54 /* Frameworks */,
+				232E92DC1638BA2C002EAE54 /* Resources */,
+				232E92DD1638BA2C002EAE54 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				232E92E41638BA2C002EAE54 /* PBXTargetDependency */,
+			);
+			name = Base64_TestsTests;
+			productName = Base64_TestsTests;
+			productReference = 232E92DF1638BA2C002EAE54 /* Base64_TestsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		232E92C21638BA2B002EAE54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Darren Ford";
+			};
+			buildConfigurationList = 232E92C51638BA2B002EAE54 /* Build configuration list for PBXProject "Base64_Tests" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 232E92C01638BA2B002EAE54;
+			productRefGroup = 232E92CC1638BA2B002EAE54 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				232E92CA1638BA2B002EAE54 /* Base64_Tests */,
+				232E92DE1638BA2C002EAE54 /* Base64_TestsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		232E92DC1638BA2C002EAE54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232E92EB1638BA2C002EAE54 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		232E92DD1638BA2C002EAE54 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		232E92C71638BA2B002EAE54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232E92D91638BA2C002EAE54 /* Base64_Tests.m in Sources */,
+				232E92FD1638BA5C002EAE54 /* Base64+categories.m in Sources */,
+				232E92FE1638BA5C002EAE54 /* MIGConverter.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		232E92DA1638BA2C002EAE54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				232E93001638BB6C002EAE54 /* Base64+categories.m in Sources */,
+				232E93011638BB6C002EAE54 /* MIGConverter.c in Sources */,
+				232E92EE1638BA2C002EAE54 /* Base64_TestsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		232E92E41638BA2C002EAE54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 232E92CA1638BA2B002EAE54 /* Base64_Tests */;
+			targetProxy = 232E92E31638BA2C002EAE54 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		232E92E91638BA2C002EAE54 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				232E92EA1638BA2C002EAE54 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		232E92EF1638BA2C002EAE54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		232E92F01638BA2C002EAE54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		232E92F21638BA2C002EAE54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Base64_Tests/Base64_Tests-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		232E92F31638BA2C002EAE54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Base64_Tests/Base64_Tests-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		232E92F51638BA2C002EAE54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Base64_Tests/Base64_Tests-Prefix.pch";
+				INFOPLIST_FILE = "Base64_TestsTests/Base64_TestsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		232E92F61638BA2C002EAE54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Base64_Tests/Base64_Tests-Prefix.pch";
+				INFOPLIST_FILE = "Base64_TestsTests/Base64_TestsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		232E92C51638BA2B002EAE54 /* Build configuration list for PBXProject "Base64_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232E92EF1638BA2C002EAE54 /* Debug */,
+				232E92F01638BA2C002EAE54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		232E92F11638BA2C002EAE54 /* Build configuration list for PBXNativeTarget "Base64_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232E92F21638BA2C002EAE54 /* Debug */,
+				232E92F31638BA2C002EAE54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		232E92F41638BA2C002EAE54 /* Build configuration list for PBXNativeTarget "Base64_TestsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232E92F51638BA2C002EAE54 /* Debug */,
+				232E92F61638BA2C002EAE54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 232E92C21638BA2B002EAE54 /* Project object */;
+}
