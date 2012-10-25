@@ -122,4 +122,22 @@
     
 }
 
+- (void)testSimpleImage
+{
+    NSError *error;
+    
+    NSString *encoding =
+        @"iVBORw0KGgoAAAANSUhEUgAAACAAAAATBAMAAAADuhLEAAAABGdBTUEAALGP\r\n"
+        @"C/xhBQAAAAFzUkdCAdnJLH8AAAAPUExURYSEhP///wAAAP//AP8AACykMFsA\r\n"
+        @"AABsSURBVHjahdDBDcMwDENRWhsw9AJRuwCBLuAi+8+UQ+rGTg75NwkPECBg\r\n"
+        @"LlDmAuBUoCyZfapbm4Tr1gJlybVvPt/XKMz6boHyX4iWBmGKdBf5i6cwSVpX\r\n"
+        @"4fGKnoRpqQsdV+1TmLYkBW4Pyks7gc8WIpISYokAAAAASUVORK5CYII=";
+    
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"mail" ofType:@"png"];
+    NSData *image = [NSData dataWithContentsOfFile:path];
+    
+    NSData *decoded = [encoding decodeBase64:&error];
+    STAssertEqualObjects(image, decoded, @"Decoding basic image data");
+}
+
 @end

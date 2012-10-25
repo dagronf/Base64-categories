@@ -20,6 +20,7 @@
 		232E92FF1638BA5C002EAE54 /* MIGConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 232E92FB1638BA5C002EAE54 /* MIGConverter.h */; };
 		232E93001638BB6C002EAE54 /* Base64+categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 232E92F91638BA5C002EAE54 /* Base64+categories.m */; };
 		232E93011638BB6C002EAE54 /* MIGConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = 232E92FA1638BA5C002EAE54 /* MIGConverter.c */; };
+		232E93031638C853002EAE54 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 232E93021638C853002EAE54 /* mail.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		232E92F91638BA5C002EAE54 /* Base64+categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Base64+categories.m"; path = "../Base64+categories.m"; sourceTree = "<group>"; };
 		232E92FA1638BA5C002EAE54 /* MIGConverter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MIGConverter.c; path = ../MIGConverter.c; sourceTree = "<group>"; };
 		232E92FB1638BA5C002EAE54 /* MIGConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIGConverter.h; path = ../MIGConverter.h; sourceTree = "<group>"; };
+		232E93021638C853002EAE54 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = Base64_TestsTests/mail.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		232E92C01638BA2B002EAE54 = {
 			isa = PBXGroup;
 			children = (
+				232E93041638C99F002EAE54 /* Resources */,
 				232E92F71638BA4B002EAE54 /* Base64 classes */,
 				232E92D41638BA2C002EAE54 /* Base64_Tests */,
 				232E92E61638BA2C002EAE54 /* Base64_TestsTests */,
@@ -161,6 +164,14 @@
 				232E92FB1638BA5C002EAE54 /* MIGConverter.h */,
 			);
 			name = "Base64 classes";
+			sourceTree = "<group>";
+		};
+		232E93041638C99F002EAE54 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				232E93021638C853002EAE54 /* mail.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				232E92EB1638BA2C002EAE54 /* InfoPlist.strings in Resources */,
+				232E93031638C853002EAE54 /* mail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
