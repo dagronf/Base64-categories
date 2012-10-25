@@ -297,7 +297,16 @@ MIG_Result MIG_decodeAsBase64Fast(const char *sArr,
 {
     // Check special case
     if (sArr == NULL)
+    {
         return MIG_InputDataEmpty;
+    }
+    else if (sLen == 0)
+    {
+        // Empty string -- return empty string according to RFC
+        *result = (unsigned char *)calloc(1, sizeof(unsigned char));
+        *resultLen = 0;
+        return MIG_OK;
+    }
     
     int sIx = 0, eIx = sLen - 1;    // Start and end index after trimming.
     
