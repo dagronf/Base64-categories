@@ -120,6 +120,18 @@
     NSString *tmp2 = [expected encodeAsBase64UsingLineEndings:NO error:&error];
     STAssertTrue(![tmp2 isEqualToString:b64Test], @"Encoding Wikipedia example without formatting");
     
+    tmp = @"any carnal pleasure.";
+    tmp2 = [tmp encodeAsBase64UsingLineEndings:NO error:&error];
+    STAssertEqualObjects(tmp2, @"YW55IGNhcm5hbCBwbGVhc3VyZS4=", @"Encoding Wikipedia example");
+    
+    tmp = @"any carnal pleasure";
+    tmp2 = [tmp encodeAsBase64UsingLineEndings:NO error:&error];
+    STAssertEqualObjects(tmp2, @"YW55IGNhcm5hbCBwbGVhc3VyZQ==", @"Encoding Wikipedia example");
+
+    tmp = @"asure.";
+    tmp2 = [tmp encodeAsBase64UsingLineEndings:NO error:&error];
+    STAssertEqualObjects(tmp2, @"YXN1cmUu", @"Encoding Wikipedia example");
+    
 }
 
 - (void)testSimpleImage
