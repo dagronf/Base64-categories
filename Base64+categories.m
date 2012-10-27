@@ -30,6 +30,10 @@
 #import "Base64+categories.h"
 #import "MIGConverter.h"
 
+#if !__has_feature(objc_arc)
+#error Base64+categories must be built with ARC.
+#endif
+
 #pragma mark -
 #pragma mark Common functions
 
