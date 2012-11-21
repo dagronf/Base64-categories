@@ -75,8 +75,9 @@ Basic example of class usage
 
       MIGBase64 *b64 = [[MIGBase64 alloc] init];
       b64.data = [NSData dataWithContentsOfFile:<some path>];
-      NSString *encoded = b64.base64;
       if (b64.lastError) { <do something with error> }
+      
+      NSString *encoded = b64.base64;
 
 Create a instance with a basic string, and grab out the components
 
