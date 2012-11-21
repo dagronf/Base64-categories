@@ -14,15 +14,22 @@
 		232E92E51638BA2C002EAE54 /* libBase64_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 232E92CB1638BA2B002EAE54 /* libBase64_Tests.a */; };
 		232E92EB1638BA2C002EAE54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 232E92E91638BA2C002EAE54 /* InfoPlist.strings */; };
 		232E92EE1638BA2C002EAE54 /* Base64_TestsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232E92ED1638BA2C002EAE54 /* Base64_TestsTests.m */; };
-		232E92FC1638BA5C002EAE54 /* MIGBase64+categories.h in Headers */ = {isa = PBXBuildFile; fileRef = 232E92F81638BA5C002EAE54 /* MIGBase64+categories.h */; };
-		232E92FD1638BA5C002EAE54 /* MIGBase64+categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 232E92F91638BA5C002EAE54 /* MIGBase64+categories.m */; };
 		232E92FE1638BA5C002EAE54 /* MIGConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = 232E92FA1638BA5C002EAE54 /* MIGConverter.c */; };
 		232E92FF1638BA5C002EAE54 /* MIGConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 232E92FB1638BA5C002EAE54 /* MIGConverter.h */; };
-		232E93001638BB6C002EAE54 /* MIGBase64+categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 232E92F91638BA5C002EAE54 /* MIGBase64+categories.m */; };
 		232E93011638BB6C002EAE54 /* MIGConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = 232E92FA1638BA5C002EAE54 /* MIGConverter.c */; };
 		232E93031638C853002EAE54 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 232E93021638C853002EAE54 /* mail.png */; };
 		23630E32165C5CC000CE5CF5 /* MIGBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 23630E30165C5CC000CE5CF5 /* MIGBase64.h */; };
 		23630E33165C5CC000CE5CF5 /* MIGBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23630E31165C5CC000CE5CF5 /* MIGBase64.m */; };
+		2397768D165CBBA000350CA7 /* MIGBase64_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 23977687165CBBA000350CA7 /* MIGBase64_Common.h */; };
+		2397768E165CBBA000350CA7 /* MIGBase64_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 23977688165CBBA000350CA7 /* MIGBase64_Common.m */; };
+		2397768F165CBBA000350CA7 /* NSData+MIGBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 23977689165CBBA000350CA7 /* NSData+MIGBase64.h */; };
+		23977690165CBBA000350CA7 /* NSData+MIGBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2397768A165CBBA000350CA7 /* NSData+MIGBase64.m */; };
+		23977691165CBBA000350CA7 /* NSString+MIGBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 2397768B165CBBA000350CA7 /* NSString+MIGBase64.h */; };
+		23977692165CBBA000350CA7 /* NSString+MIGBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2397768C165CBBA000350CA7 /* NSString+MIGBase64.m */; };
+		23977693165CBD5100350CA7 /* MIGBase64_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 23977688165CBBA000350CA7 /* MIGBase64_Common.m */; };
+		23977694165CBD5100350CA7 /* NSData+MIGBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2397768A165CBBA000350CA7 /* NSData+MIGBase64.m */; };
+		23977695165CBD5100350CA7 /* NSString+MIGBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2397768C165CBBA000350CA7 /* NSString+MIGBase64.m */; };
+		23977696165CBD5100350CA7 /* MIGBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23630E31165C5CC000CE5CF5 /* MIGBase64.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +57,18 @@
 		232E92EA1638BA2C002EAE54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		232E92EC1638BA2C002EAE54 /* Base64_TestsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base64_TestsTests.h; sourceTree = "<group>"; };
 		232E92ED1638BA2C002EAE54 /* Base64_TestsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Base64_TestsTests.m; sourceTree = "<group>"; };
-		232E92F81638BA5C002EAE54 /* MIGBase64+categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MIGBase64+categories.h"; path = "../MIGBase64+categories.h"; sourceTree = "<group>"; };
-		232E92F91638BA5C002EAE54 /* MIGBase64+categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MIGBase64+categories.m"; path = "../MIGBase64+categories.m"; sourceTree = "<group>"; };
 		232E92FA1638BA5C002EAE54 /* MIGConverter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MIGConverter.c; path = ../MIGConverter.c; sourceTree = "<group>"; };
 		232E92FB1638BA5C002EAE54 /* MIGConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIGConverter.h; path = ../MIGConverter.h; sourceTree = "<group>"; };
 		232E93021638C853002EAE54 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = Base64_TestsTests/mail.png; sourceTree = "<group>"; };
 		23630E30165C5CC000CE5CF5 /* MIGBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIGBase64.h; path = ../MIGBase64.h; sourceTree = "<group>"; };
 		23630E31165C5CC000CE5CF5 /* MIGBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIGBase64.m; path = ../MIGBase64.m; sourceTree = "<group>"; };
 		23630E36165C60A200CE5CF5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		23977687165CBBA000350CA7 /* MIGBase64_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIGBase64_Common.h; path = ../MIGBase64_Common.h; sourceTree = "<group>"; };
+		23977688165CBBA000350CA7 /* MIGBase64_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIGBase64_Common.m; path = ../MIGBase64_Common.m; sourceTree = "<group>"; };
+		23977689165CBBA000350CA7 /* NSData+MIGBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+MIGBase64.h"; path = "../NSData+MIGBase64.h"; sourceTree = "<group>"; };
+		2397768A165CBBA000350CA7 /* NSData+MIGBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+MIGBase64.m"; path = "../NSData+MIGBase64.m"; sourceTree = "<group>"; };
+		2397768B165CBBA000350CA7 /* NSString+MIGBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MIGBase64.h"; path = "../NSString+MIGBase64.h"; sourceTree = "<group>"; };
+		2397768C165CBBA000350CA7 /* NSString+MIGBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MIGBase64.m"; path = "../NSString+MIGBase64.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,12 +174,16 @@
 		232E92F71638BA4B002EAE54 /* Base64 classes */ = {
 			isa = PBXGroup;
 			children = (
+				23977687165CBBA000350CA7 /* MIGBase64_Common.h */,
+				23977688165CBBA000350CA7 /* MIGBase64_Common.m */,
+				23630E31165C5CC000CE5CF5 /* MIGBase64.m */,
+				23630E30165C5CC000CE5CF5 /* MIGBase64.h */,
+				23977689165CBBA000350CA7 /* NSData+MIGBase64.h */,
+				2397768A165CBBA000350CA7 /* NSData+MIGBase64.m */,
+				2397768B165CBBA000350CA7 /* NSString+MIGBase64.h */,
+				2397768C165CBBA000350CA7 /* NSString+MIGBase64.m */,
 				23630E36165C60A200CE5CF5 /* README.md */,
 				23630E35165C5D0600CE5CF5 /* MIG Files */,
-				232E92F81638BA5C002EAE54 /* MIGBase64+categories.h */,
-				232E92F91638BA5C002EAE54 /* MIGBase64+categories.m */,
-				23630E30165C5CC000CE5CF5 /* MIGBase64.h */,
-				23630E31165C5CC000CE5CF5 /* MIGBase64.m */,
 			);
 			name = "Base64 classes";
 			sourceTree = "<group>";
@@ -197,9 +212,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				232E92FC1638BA5C002EAE54 /* MIGBase64+categories.h in Headers */,
 				232E92FF1638BA5C002EAE54 /* MIGConverter.h in Headers */,
 				23630E32165C5CC000CE5CF5 /* MIGBase64.h in Headers */,
+				2397768D165CBBA000350CA7 /* MIGBase64_Common.h in Headers */,
+				2397768F165CBBA000350CA7 /* NSData+MIGBase64.h in Headers */,
+				23977691165CBBA000350CA7 /* NSString+MIGBase64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,9 +320,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				232E92D91638BA2C002EAE54 /* Base64_Tests.m in Sources */,
-				232E92FD1638BA5C002EAE54 /* MIGBase64+categories.m in Sources */,
 				232E92FE1638BA5C002EAE54 /* MIGConverter.c in Sources */,
 				23630E33165C5CC000CE5CF5 /* MIGBase64.m in Sources */,
+				2397768E165CBBA000350CA7 /* MIGBase64_Common.m in Sources */,
+				23977690165CBBA000350CA7 /* NSData+MIGBase64.m in Sources */,
+				23977692165CBBA000350CA7 /* NSString+MIGBase64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +332,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				232E93001638BB6C002EAE54 /* MIGBase64+categories.m in Sources */,
+				23977693165CBD5100350CA7 /* MIGBase64_Common.m in Sources */,
+				23977694165CBD5100350CA7 /* NSData+MIGBase64.m in Sources */,
+				23977695165CBD5100350CA7 /* NSString+MIGBase64.m in Sources */,
+				23977696165CBD5100350CA7 /* MIGBase64.m in Sources */,
 				232E93011638BB6C002EAE54 /* MIGConverter.c in Sources */,
 				232E92EE1638BA2C002EAE54 /* Base64_TestsTests.m in Sources */,
 			);
@@ -390,6 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -420,6 +443,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Base64_Tests/Base64_Tests-Prefix.pch";
 				INFOPLIST_FILE = "Base64_TestsTests/Base64_TestsTests-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -433,6 +457,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Base64_Tests/Base64_Tests-Prefix.pch";
 				INFOPLIST_FILE = "Base64_TestsTests/Base64_TestsTests-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};

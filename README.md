@@ -1,8 +1,6 @@
-Base64+categories
-=================
+# Base64+categories
 
-Overview
---------
+## Overview
 
 C/Objective-C wrapper for the MiGBase64 fast Base64 conversion libraries [located here](http://migbase64.sourceforge.net "Original Java source code"), originally written by [Mikael Grev](http://sourceforge.net/users/mgrev "Original author") and MiG InfoCom AB.
 
@@ -26,8 +24,7 @@ Please note the license for the MiGBase64 library at the end of this file (BSD l
 
 For the Objective-C components, Base64+categories currently requires ARC and will flag an error if built in a non-ARC environment.
 
-Classes and categories
-----------------------
+## Classes and categories
 
 ### MIGConverter.h.c
 
@@ -38,16 +35,22 @@ The two function calls in MIGConverter.c return an internally allocated memory b
 
 The core C port (MIGConverter.c.h) is completely independent of the Objective-C code, which means it can be incorporated into other projects that can import or directly access C code.
 
-### MIGBase64+categories.h.m
+### MIGCommon.m.h, NSData+MIGBase64.m.h, NSString+MIGBase64.m.h
 
-The two files 'MIGBase64+categories.m' and 'MIGBase64+categories.h' are an Objective-C (ARC) categories sitting on the top of the MiGBase64 port.  These files provide Base64 categories for NSData and NSString - refer to the header file for descriptions of the supplied methods.
+These files are Objective-C (ARC) categories sitting on the top of the MIGConverter port.  These files provide Base64 categories for NSData and NSString - refer to the header file for descriptions of the supplied methods.
 
 ### MIGBase64.h.m
 
 The two files 'MIGBase64.h' and 'MIGBase64.m' are a (basic) class wrapper for the provided categories.  I find it cleaner in the code (particularly when dealing with base64-encoded NSStrings) to hand around an explicit Base64 object - makes it obvious in functions what to expect when you're handed the data by another function.
 
-Simple examples
----------------
+## Important note regarding performance
+Using NSStrings when converting to/from Base64 puts a huge penalty on conversion speed, as the NSString (in many cases) needs to be encoded to UTF8 encoding before a decode can take place
+
+For raw speed, use the NSData (MIGBase64_FAST) category functions, located in NSData+MIGBase64.  The functions have very little overhead on the top of the base MiGBase64 conversion code.
+
+Basically, any encode/decode routines (with one or two exceptions) that involve using NSString are slower functions.
+
+## Simple examples
 
 ### Basic Category examples
 
@@ -109,11 +112,8 @@ Decode a Base64 String
       if (obj.lastError) { <do something with error> }
       NSData *data = obj.data;
 
-Licenses
-========
-
-License for Base64+categories (MIT)
------------------------------------
+# Licenses
+## License for Base64+categories (MIT-based)
 
     Redistribution and use in source and binary forms, with or without modification,
     are permitted provided that the following conditions are met:
@@ -134,8 +134,7 @@ License for Base64+categories (MIT)
     ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
     OF SUCH DAMAGE. 
  
-Licence for migbase64 (BSD)
----------------------------
+## Licence for MiGBase64 (BSD-based)
 
     Licence (BSD):
     ==============

@@ -41,7 +41,9 @@
 
 
 #import "MIGBase64.h"
-#import "MIGBase64+categories.h"
+
+#import "NSData+MIGBase64.h"
+#import "NSString+MIGBase64.h"
 
 #if !__has_feature(objc_arc)
 #error MIGBase64+categories must be built with ARC.
@@ -107,14 +109,15 @@
     if (s)
     {
         _useFormatting = FALSE;
-        self.base64 = base64String;
+        const char *data = base64String.UTF8String;
+        self.base64 = [NSData dataWithBytes:data length:strlen(data)];
     }
     return s;
 }
 
 - (NSString *)description
 {
-    NSString *result = [NSString stringWithFormat:@"formatting: %@\r\nBase64: %@", [NSNumber numberWithBool:_useFormatting], _base64];
+    NSString *result = [NSString stringWithFormat:@"formatting: %@\r\nBase64: %@\r\nLength:%ld", [NSNumber numberWithBool:_useFormatting], _base64, _base64.length];
     return result;
 }
 
@@ -134,21 +137,21 @@
 - (void)setData:(NSData *)data
 {
     NSError *err;
-    _base64 = [data encodeAsBase64UsingLineEndings:_useFormatting error:&err];
+    _base64 = [data encodeAsBase64DataUsingLineEndings:_useFormatting error:&err];
     _lastError = err;
 }
 
 - (void)setString:(NSString *)str
 {
     NSError *err;
-    _base64 = [str encodeAsBase64UsingLineEndings:_useFormatting error:&err];
+    _base64 = [str encodeAsBase64DataUsingLineEndings:_useFormatting error:&err];
     _lastError = err;
 }
 
 - (NSData *)data
 {
     NSError *err;
-    NSData *data = [_base64 decodeBase64:&err];
+    NSData *data = [_base64 decodeFromBase64Data:&err];
     _lastError = err;
     return data;
 }
@@ -156,7 +159,7 @@
 - (NSString *)string
 {
     NSError *err;
-    NSString *str = [_base64 decodeBase64AsString:&err];
+    NSString *str = [_base64 decodeBase64DataAsString:&err];
     _lastError = err;
     return str;
 }

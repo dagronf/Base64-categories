@@ -41,6 +41,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface MIGBase64 : NSObject
 
 #pragma mark Static creators
@@ -61,7 +62,7 @@
 @property BOOL useFormatting;
 
 /** The encapsulated base64 string */
-@property (retain) NSString *base64;
+@property (retain) NSData *base64;
 
 /** Setter and getter for raw data */
 @property NSData *data;
