@@ -43,6 +43,10 @@
 #import "Base64.h"
 #import "Base64+categories.h"
 
+#if !__has_feature(objc_arc)
+#error Base64+categories must be built with ARC.
+#endif
+
 @implementation Base64
 
 - (id)init
