@@ -117,55 +117,6 @@
 @end
 
 
-#pragma mark -
-#pragma mark Base64 class
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-// Base64 class
-//
-// Basically a wrapper for the aforementioned functions.  Having a Base64 class means that
-// your code is much more understandable when handing objects throughout the code.
-//
-// Internally, all storage is done as a Base64 string.  When setters and getters are called
-// (ie. data and string) then the stored data is automatically converted before being returned
-// Note that this means that if you are calling the getters for 'data' or 'string' a lot with
-// the same stored value, you'd be better off caching the original result, as these getters
-// are relatively computationally intensive.
-//
-// Note also that 'useFormatting' property ONLY applies when _setting_ 'string' or 'data'
-// properties.
-// 
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-@interface Base64 : NSObject
-
-#pragma mark Initializers
-- (id)init;
-- (id)initWithData:(NSData *)data useFormatting:(BOOL)f;
-- (id)initWithString:(NSString *)string useFormatting:(BOOL)f;
-- (id)initWithBase64:(NSString *)base64String;
-
-#pragma mark Properties
-
-/** Use formatting when encoding data */
-@property BOOL useFormatting;
-
-/** The encapsulated base64 string */
-@property NSString *base64;
-
-/** Setter and getter for raw data */
-@property NSData *data;
-
-/** Setter and getter for raw strings */
-@property NSString *string;
-
-#pragma mark Read-only properties
-
-/** When a call errors, this is set to the error */
-@property (readonly) NSError *lastError;
-
-@end
-
 
 
 
