@@ -59,6 +59,7 @@
 		232E93021638C853002EAE54 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = Base64_TestsTests/mail.png; sourceTree = "<group>"; };
 		23630E30165C5CC000CE5CF5 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = ../Base64.h; sourceTree = "<group>"; };
 		23630E31165C5CC000CE5CF5 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base64.m; path = ../Base64.m; sourceTree = "<group>"; };
+		23630E36165C60A200CE5CF5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		23FAADBC163F3AF70064C8C7 /* SenTestCaseUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenTestCaseUI.h; path = ../SenTestCaseUI.h; sourceTree = "<group>"; };
 		23FAADBD163F3AF70064C8C7 /* SenTestCaseUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SenTestCaseUI.m; path = ../SenTestCaseUI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +169,7 @@
 		232E92F71638BA4B002EAE54 /* Base64 classes */ = {
 			isa = PBXGroup;
 			children = (
+				23630E36165C60A200CE5CF5 /* README.md */,
 				23630E35165C5D0600CE5CF5 /* MIG Files */,
 				232E92F81638BA5C002EAE54 /* Base64+categories.h */,
 				232E92F91638BA5C002EAE54 /* Base64+categories.m */,
