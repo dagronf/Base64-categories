@@ -31,6 +31,41 @@ provided categories.  I find it cleaner in the code (particularly when dealing w
 base64-encoded NSStrings) to hand around an explicit Base64 object - makes it
 obvious in functions what to expect the data to contain.
 
+Simple examples
+===============
+
+Basic Category examples
+-----------------------
+
+Encode a string to a Base64 String
+    NSString *b64Encoded = @"This is a test".Base64;
+
+Decode a Base64 encoded string into a string
+    NSError *err;
+    NSString *encodedVector = @"Zm9vYmFy";
+    NSString *result = [encodedVector decodeBase64AsString:&err];
+
+Encode an NSData object to a Base64 String
+    NSError *err;
+    NSData *rawData = [NSData dataWithContentsOfFile:<some path>];
+    NSString *result = [rawData encodeAsBase64UsingLineEndings:NO error:&err];
+
+MIGBase64 class examples
+------------------------
+
+Create a instance with a basic string, and grab out the components
+    NSString *testPhrase = @"Testing class encoding";
+    MIGBase64 *b64 = [MIGBase64 createWithString:testPhrase useFormatting:YES];
+    
+    NSData *decodedData = b64.data;          // NSData representation of 'testPhrase'
+    NSString *decodedString = b64.string;    // NSString representation of 'testPhrase'
+    NSString *base64String = b64.base64;     // Base64 representation of 'testPhrase'
+
+Base64 encode an NSData object
+    NSError *err;
+    NSData *rawData = [NSData dataWithContentsOfFile:<some path>];
+    MIGBase64 *obj = [MIGBase64 createWithData:rawData useFormatting:YES];
+    NSString *base64String = obj.base64;
 
 Licenses
 ========
