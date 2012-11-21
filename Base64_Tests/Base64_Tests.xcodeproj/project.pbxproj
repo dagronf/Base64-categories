@@ -21,6 +21,10 @@
 		232E93001638BB6C002EAE54 /* Base64+categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 232E92F91638BA5C002EAE54 /* Base64+categories.m */; };
 		232E93011638BB6C002EAE54 /* MIGConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = 232E92FA1638BA5C002EAE54 /* MIGConverter.c */; };
 		232E93031638C853002EAE54 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 232E93021638C853002EAE54 /* mail.png */; };
+		23630E32165C5CC000CE5CF5 /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 23630E30165C5CC000CE5CF5 /* Base64.h */; };
+		23630E33165C5CC000CE5CF5 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23630E31165C5CC000CE5CF5 /* Base64.m */; };
+		23FAADBE163F3AF70064C8C7 /* SenTestCaseUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FAADBC163F3AF70064C8C7 /* SenTestCaseUI.h */; };
+		23FAADC1163F3CCA0064C8C7 /* SenTestCaseUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FAADBD163F3AF70064C8C7 /* SenTestCaseUI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		232E92FA1638BA5C002EAE54 /* MIGConverter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MIGConverter.c; path = ../MIGConverter.c; sourceTree = "<group>"; };
 		232E92FB1638BA5C002EAE54 /* MIGConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIGConverter.h; path = ../MIGConverter.h; sourceTree = "<group>"; };
 		232E93021638C853002EAE54 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mail.png; path = Base64_TestsTests/mail.png; sourceTree = "<group>"; };
+		23630E30165C5CC000CE5CF5 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = ../Base64.h; sourceTree = "<group>"; };
+		23630E31165C5CC000CE5CF5 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base64.m; path = ../Base64.m; sourceTree = "<group>"; };
+		23FAADBC163F3AF70064C8C7 /* SenTestCaseUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenTestCaseUI.h; path = ../SenTestCaseUI.h; sourceTree = "<group>"; };
+		23FAADBD163F3AF70064C8C7 /* SenTestCaseUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SenTestCaseUI.m; path = ../SenTestCaseUI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +147,8 @@
 		232E92E61638BA2C002EAE54 /* Base64_TestsTests */ = {
 			isa = PBXGroup;
 			children = (
+				23FAADBC163F3AF70064C8C7 /* SenTestCaseUI.h */,
+				23FAADBD163F3AF70064C8C7 /* SenTestCaseUI.m */,
 				232E92EC1638BA2C002EAE54 /* Base64_TestsTests.h */,
 				232E92ED1638BA2C002EAE54 /* Base64_TestsTests.m */,
 				232E92E71638BA2C002EAE54 /* Supporting Files */,
@@ -158,10 +168,11 @@
 		232E92F71638BA4B002EAE54 /* Base64 classes */ = {
 			isa = PBXGroup;
 			children = (
+				23630E35165C5D0600CE5CF5 /* MIG Files */,
 				232E92F81638BA5C002EAE54 /* Base64+categories.h */,
 				232E92F91638BA5C002EAE54 /* Base64+categories.m */,
-				232E92FA1638BA5C002EAE54 /* MIGConverter.c */,
-				232E92FB1638BA5C002EAE54 /* MIGConverter.h */,
+				23630E30165C5CC000CE5CF5 /* Base64.h */,
+				23630E31165C5CC000CE5CF5 /* Base64.m */,
 			);
 			name = "Base64 classes";
 			sourceTree = "<group>";
@@ -174,6 +185,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		23630E35165C5D0600CE5CF5 /* MIG Files */ = {
+			isa = PBXGroup;
+			children = (
+				232E92FA1638BA5C002EAE54 /* MIGConverter.c */,
+				232E92FB1638BA5C002EAE54 /* MIGConverter.h */,
+			);
+			name = "MIG Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -183,6 +203,8 @@
 			files = (
 				232E92FC1638BA5C002EAE54 /* Base64+categories.h in Headers */,
 				232E92FF1638BA5C002EAE54 /* MIGConverter.h in Headers */,
+				23FAADBE163F3AF70064C8C7 /* SenTestCaseUI.h in Headers */,
+				23630E32165C5CC000CE5CF5 /* Base64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +310,7 @@
 				232E92D91638BA2C002EAE54 /* Base64_Tests.m in Sources */,
 				232E92FD1638BA5C002EAE54 /* Base64+categories.m in Sources */,
 				232E92FE1638BA5C002EAE54 /* MIGConverter.c in Sources */,
+				23630E33165C5CC000CE5CF5 /* Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23FAADC1163F3CCA0064C8C7 /* SenTestCaseUI.m in Sources */,
 				232E93001638BB6C002EAE54 /* Base64+categories.m in Sources */,
 				232E93011638BB6C002EAE54 /* MIGConverter.c in Sources */,
 				232E92EE1638BA2C002EAE54 /* Base64_TestsTests.m in Sources */,
@@ -439,6 +463,7 @@
 				232E92F31638BA2C002EAE54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		232E92F41638BA2C002EAE54 /* Build configuration list for PBXNativeTarget "Base64_TestsTests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +472,7 @@
 				232E92F61638BA2C002EAE54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

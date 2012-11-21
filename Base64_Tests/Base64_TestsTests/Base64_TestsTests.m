@@ -9,6 +9,9 @@
 #import "Base64_TestsTests.h"
 
 #import "../../Base64+categories.h"
+#import "../../Base64.h"
+
+#import "SKU_Manager.h"
 
 /** RFC Test vectors
  10.  Test Vectors
@@ -46,11 +49,13 @@
     NSString *testString2 = @"This is a test".Base64;
     
     NSString *result = [testString encodeAsBase64UsingLineEndings:NO error:&error];
-    STAssertEqualObjects(result, testString2, @"Testing basic encoding decoding");
+    STAssertEqualObjects(result, testString2, @"Testing basic encoding");
     
     NSString *eee = [result decodeBase64AsString:&error];
+    NSString *fff = @"asdf";
+    STAssertEqualObjects(fff, testString, @"Testing basic decoding");
     
-    STAssertEqualObjects(eee, testString, @"Testing basic encoding decoding");
+    
 }
 
 - (void)testRFCEncodeVectors
@@ -150,6 +155,44 @@
     
     NSData *decoded = [encoding decodeBase64:&error];
     STAssertEqualObjects(image, decoded, @"Decoding basic image data");
+}
+
+- (void)testBase64Class
+{
+    NSString *testPhrase = @"Testing class encoding";
+    
+    Base64 *obj = [[Base64 alloc] initWithString:testPhrase useFormatting:NO];
+    NSData *dat = [NSKeyedArchiver archivedDataWithRootObject:obj];
+    Base64 *decObj = [NSKeyedUnarchiver unarchiveObjectWithData:dat];
+    
+    NSString *str = decObj.string;
+    STAssertEqualObjects(str, testPhrase, @"Archive/Unarchive");
+
+    NSString *encoding =
+        @"iVBORw0KGgoAAAANSUhEUgAAACAAAAATBAMAAAADuhLEAAAABGdBTUEAALGP\r\n"
+        @"C/xhBQAAAAFzUkdCAdnJLH8AAAAPUExURYSEhP///wAAAP//AP8AACykMFsA\r\n"
+        @"AABsSURBVHjahdDBDcMwDENRWhsw9AJRuwCBLuAi+8+UQ+rGTg75NwkPECBg\r\n"
+        @"LlDmAuBUoCyZfapbm4Tr1gJlybVvPt/XKMz6boHyX4iWBmGKdBf5i6cwSVpX\r\n"
+        @"4fGKnoRpqQsdV+1TmLYkBW4Pyks7gc8WIpISYokAAAAASUVORK5CYII=";
+    
+    
+    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"mail" ofType:@"png"];
+    NSData *image = [NSData dataWithContentsOfFile:path];
+    
+    obj.base64 = encoding;
+    NSData *decoded = obj.data;
+ 
+    STAssertEqualObjects(image, decoded, @"Basic set base64 decoding");
+    
+    obj.useFormatting = YES;
+    dat = [NSKeyedArchiver archivedDataWithRootObject:obj];
+    decObj = [NSKeyedUnarchiver unarchiveObjectWithData:dat];
+    
+    decoded = decObj.data;
+
+    STAssertEqualObjects(image, decoded, @"Basic set Base64 archive/unarchive");
+
+
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface Base64_TestsTests : SenTestCase
+#import "SenTestCaseUI.h"
+
+@interface Base64_TestsTests : SenTestCaseUI
 
 @end
