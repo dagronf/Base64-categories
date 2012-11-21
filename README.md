@@ -80,7 +80,6 @@ Create a instance with a basic string, and grab out the components
 
 Base64 encode an NSData object
 
-      NSError *err;
       NSData *rawData = [NSData dataWithContentsOfFile:<some path>];
       MIGBase64 *b64 = [MIGBase64 createWithData:rawData useFormatting:YES];
       if (b64.lastError) { <do something with error> }
@@ -88,7 +87,6 @@ Base64 encode an NSData object
 
 Decode a Base64 String
 
-      NSError *err;
       MIGBase64 *obj = [MIGBase64 createWithBase64:base64EncodedString];
       if (obj.lastError) { <do something with error> }
       NSData *data = obj.data;
