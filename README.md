@@ -72,6 +72,7 @@ Decode a Base64 encoded string into an NSData object
 ### MIGBase64 class examples
 
 Basic example of class usage
+
       MIGBase64 *b64 = [[MIGBase64 alloc] init];
       b64.data = [NSData dataWithContentsOfFile:<some path>];
       NSString *encoded = b64.base64;
