@@ -43,6 +43,12 @@
 
 @interface Base64 : NSObject
 
+#pragma mark Static creators
++ (id)create;
++ (id)createWithData:(NSData *)data useFormatting:(BOOL)f;
++ (id)createWithString:(NSString *)string useFormatting:(BOOL)f;
++ (id)createWithBase64:(NSString *)base64String;
+
 #pragma mark Initializers
 - (id)init;
 - (id)initWithData:(NSData *)data useFormatting:(BOOL)f;

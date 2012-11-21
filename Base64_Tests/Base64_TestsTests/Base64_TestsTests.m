@@ -48,12 +48,6 @@
     
     NSString *result = [testString encodeAsBase64UsingLineEndings:NO error:&error];
     STAssertEqualObjects(result, testString2, @"Testing basic encoding");
-    
-    NSString *eee = [result decodeBase64AsString:&error];
-    NSString *fff = @"asdf";
-    STAssertEqualObjects(fff, testString, @"Testing basic decoding");
-    
-    
 }
 
 - (void)testRFCEncodeVectors
@@ -159,7 +153,7 @@
 {
     NSString *testPhrase = @"Testing class encoding";
     
-    Base64 *obj = [[Base64 alloc] initWithString:testPhrase useFormatting:NO];
+    Base64 *obj = [Base64 createWithString:testPhrase useFormatting:NO];
     NSData *dat = [NSKeyedArchiver archivedDataWithRootObject:obj];
     Base64 *decObj = [NSKeyedUnarchiver unarchiveObjectWithData:dat];
     

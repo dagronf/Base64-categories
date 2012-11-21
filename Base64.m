@@ -49,6 +49,26 @@
 
 @implementation Base64
 
++ (id)create
+{
+    return [[Base64 alloc] init];
+}
+
++ (id)createWithData:(NSData *)data useFormatting:(BOOL)f
+{
+    return [[Base64 alloc] initWithData:data useFormatting:f];
+}
+
++ (id)createWithString:(NSString *)string useFormatting:(BOOL)f
+{
+    return [[Base64 alloc] initWithString:string useFormatting:f];
+}
+
++ (id)createWithBase64:(NSString *)base64String
+{
+    return [[Base64 alloc] initWithBase64:base64String];
+}
+
 - (id)init
 {
     id s = [super init];
