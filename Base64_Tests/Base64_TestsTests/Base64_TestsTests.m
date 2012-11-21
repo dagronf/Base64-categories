@@ -11,8 +11,6 @@
 #import "../../Base64+categories.h"
 #import "../../Base64.h"
 
-#import "SKU_Manager.h"
-
 /** RFC Test vectors
  10.  Test Vectors
  

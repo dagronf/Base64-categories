@@ -23,8 +23,6 @@
 		232E93031638C853002EAE54 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 232E93021638C853002EAE54 /* mail.png */; };
 		23630E32165C5CC000CE5CF5 /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 23630E30165C5CC000CE5CF5 /* Base64.h */; };
 		23630E33165C5CC000CE5CF5 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 23630E31165C5CC000CE5CF5 /* Base64.m */; };
-		23FAADBE163F3AF70064C8C7 /* SenTestCaseUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FAADBC163F3AF70064C8C7 /* SenTestCaseUI.h */; };
-		23FAADC1163F3CCA0064C8C7 /* SenTestCaseUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FAADBD163F3AF70064C8C7 /* SenTestCaseUI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +58,6 @@
 		23630E30165C5CC000CE5CF5 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = ../Base64.h; sourceTree = "<group>"; };
 		23630E31165C5CC000CE5CF5 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base64.m; path = ../Base64.m; sourceTree = "<group>"; };
 		23630E36165C60A200CE5CF5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		23FAADBC163F3AF70064C8C7 /* SenTestCaseUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SenTestCaseUI.h; path = ../SenTestCaseUI.h; sourceTree = "<group>"; };
-		23FAADBD163F3AF70064C8C7 /* SenTestCaseUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SenTestCaseUI.m; path = ../SenTestCaseUI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,8 +144,6 @@
 		232E92E61638BA2C002EAE54 /* Base64_TestsTests */ = {
 			isa = PBXGroup;
 			children = (
-				23FAADBC163F3AF70064C8C7 /* SenTestCaseUI.h */,
-				23FAADBD163F3AF70064C8C7 /* SenTestCaseUI.m */,
 				232E92EC1638BA2C002EAE54 /* Base64_TestsTests.h */,
 				232E92ED1638BA2C002EAE54 /* Base64_TestsTests.m */,
 				232E92E71638BA2C002EAE54 /* Supporting Files */,
@@ -205,7 +199,6 @@
 			files = (
 				232E92FC1638BA5C002EAE54 /* Base64+categories.h in Headers */,
 				232E92FF1638BA5C002EAE54 /* MIGConverter.h in Headers */,
-				23FAADBE163F3AF70064C8C7 /* SenTestCaseUI.h in Headers */,
 				23630E32165C5CC000CE5CF5 /* Base64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +313,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23FAADC1163F3CCA0064C8C7 /* SenTestCaseUI.m in Sources */,
 				232E93001638BB6C002EAE54 /* Base64+categories.m in Sources */,
 				232E93011638BB6C002EAE54 /* MIGConverter.c in Sources */,
 				232E92EE1638BA2C002EAE54 /* Base64_TestsTests.m in Sources */,
