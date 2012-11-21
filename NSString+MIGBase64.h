@@ -38,6 +38,8 @@
 #pragma mark NSString Base 64 additions (slower, NSString-based)
 @interface NSString (MIGBase64)
 
+#pragma mark Property
+
 /** Property to provide a quick property-style access to the Base64 data
  For example,
  NSString *result = @"My string".Base64;
@@ -48,21 +50,13 @@
  */
 @property (readonly) NSString *Base64;
 
-/** This is a convenience function.
- Encodes the string object as Base64, and returns a new NSString object on success
- If an error occurs, returns nil.  Use the error object to determine the failure.
- NOTE: not all input strings can be defined as UTF8, thus this function
- should only be used for very basic cases */
-- (NSString *)encodeAsBase64StringUsingLineEndings:(BOOL)useOptionalLineEndings
-                                             error:(NSError **)error;
-- (NSData *)encodeAsBase64DataUsingLineEndings:(BOOL)useOptionalLineEndings
-                                         error:(NSError **)error;
+#pragma mark Decoders
 
 /** Decodes from the passed in string object, and returns a new NSData object on success
  If an error occurs, returns nil.  Use the error object to determine the failure.
  Note that the results are undefined if the input string is not Base64
  (ie. ASCII chars only) */
-- (NSData *)decodeBase64:(NSError **)error;
+- (NSData *)decodeBase64AsData:(NSError **)error;
 
 /** Decodes base64 data from the object, and returns a new NSString object on success
  If an error occurs, returns nil.  Use the error object to determine the failure.
@@ -70,6 +64,21 @@
  string.  If the encoded string has come from an unknown source (eg. a web page)
  then you should use 'decodeBase64' and parse the result yourself */
 - (NSString *)decodeBase64AsString:(NSError **)error;
+
+#pragma mark Encoders
+
+/** This is a convenience function.
+ Encodes the string object as Base64, and returns a new NSString object on success
+ If an error occurs, returns nil.  Use the error object to determine the failure.
+ NOTE: not all input strings can be defined as UTF8, thus this function
+ should only be used for very basic cases */
+
+- (NSString *)encodeAsBase64StringUsingLineEndings:(BOOL)useOptionalLineEndings
+                                             error:(NSError **)error;
+- (NSData *)encodeAsBase64DataUsingLineEndings:(BOOL)useOptionalLineEndings
+                                         error:(NSError **)error;
+
+
 
 @end
 

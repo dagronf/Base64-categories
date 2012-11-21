@@ -51,6 +51,9 @@
 
 @implementation MIGBase64
 
+@dynamic string;
+@dynamic data;
+
 + (id)create
 {
     return [[MIGBase64 alloc] init];

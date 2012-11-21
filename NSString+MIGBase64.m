@@ -51,6 +51,8 @@
     return result;
 }
 
+#pragma mark Encoders
+
 - (NSString *)encodeAsBase64StringUsingLineEndings:(BOOL)useOptionalLineEndings
                                              error:(NSError **)error
 {
@@ -115,7 +117,7 @@
 }
 
 #pragma mark Decoding Base64 from NSString
-- (NSData *)decodeBase64:(NSError **)error
+- (NSData *)decodeBase64AsData:(NSError **)error
 {
     MIG_Result res;
     unsigned char *result;

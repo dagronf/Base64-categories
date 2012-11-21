@@ -149,7 +149,7 @@
     NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"mail" ofType:@"png"];
     NSData *image = [NSData dataWithContentsOfFile:path];
     
-    NSData *decoded = [encoding decodeBase64:&error];
+    NSData *decoded = [encoding decodeBase64AsData:&error];
     STAssertEqualObjects(image, decoded, @"Decoding basic image data");
 }
 
@@ -188,8 +188,6 @@
     decoded = decObj.data;
 
     STAssertEqualObjects(image, decoded, @"Basic set Base64 archive/unarchive");
-
-
 }
 
 - (void)testSpeedNSData

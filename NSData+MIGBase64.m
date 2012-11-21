@@ -39,7 +39,12 @@
 #error MIGBase64+categories must be built with ARC.
 #endif
 
+#pragma mark -
+#pragma mark NSData Base 64 additions (fastest routines)
+
 @implementation NSData (MIGBase64_FAST)
+
+#pragma mark Decoders
 
 + (NSData *)dataFromBase64EncodedChars:(const char *)data
                                 length:(int)length
@@ -63,8 +68,15 @@
 + (NSData *)dataFromBase64EncodedData:(NSData *)data
                                 error:(NSError **)error
 {
-    return [data decodeFromBase64Data:error];
+    return [NSData dataFromBase64EncodedChars:data.bytes length:data.length error:error];
 }
+
+- (NSData *)decodeFromBase64Data:(NSError **)error
+{
+    return [NSData dataFromBase64EncodedChars:self.bytes length:self.length error:error];
+}
+
+#pragma mark Encoders
 
 + (NSString *)stringByEncodingDataAsBase64:(NSData *)data
                             withFormatting:(BOOL)useOptionalLineEndings
@@ -72,26 +84,6 @@
 {
     return [data encodeAsBase64StringUsingLineEndings:useOptionalLineEndings error:error];
 }
-
-- (NSData *)decodeFromBase64Data:(NSError **)error
-{
-    unsigned char *result;
-    unsigned int result_len;
-    
-    // Assumption that data contains an ASCII encoded Base64 string.
-    MIG_Result res = MIG_decodeAsBase64(self.bytes, self.length, &result, &result_len);
-    if (res == MIG_OK)
-    {
-        return [[NSData alloc] initWithBytesNoCopy:result
-                                            length:result_len
-                                      freeWhenDone:YES];
-    }
-    
-    // Got an error -- generate a descriptive error
-    *error = generateErrorStructure(res);
-    return nil;
-}
-
 
 -(NSData *)encodeAsBase64DataUsingLineEndings:(BOOL)useOptionalLineEndings
                                         error:(NSError **)error
@@ -138,6 +130,14 @@
 
 @end
 
+
+
+////////////////////////////////////////////////////////////////////////
+// Slower routines
+////////////////////////////////////////////////////////////////////////
+
+#pragma mark -
+#pragma mark NSData Base 64 additions (slower, NSString-based)
 @implementation NSData (MIGBase64)
 
 #pragma mark Convenience property
@@ -151,12 +151,12 @@
     return result;
 }
 
-
-#pragma mark Decoding Base64 to NSData
+#pragma mark -
+#pragma mark Decoders
 + (NSData *)dataFromBase64EncodedString:(NSString *)b64
                                   error:(NSError **)error
 {
-    return [b64 decodeBase64:error];
+    return [b64 decodeBase64AsData:error];
 }
 
 - (NSString *)decodeBase64DataAsString:(NSError **)error

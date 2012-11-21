@@ -43,6 +43,9 @@
 #pragma mark NSData Base 64 additions (fastest routines)
 @interface NSData (MIGBase64_FAST)
 
+#pragma mark Decoders
+
+
 /** Decodes from the passed in NSData object, and returns a new NSData object on success
  If an error occurs, returns nil.  Use the error object to determine the failure. */
 + (NSData *)dataFromBase64EncodedChars:(const char *)data
@@ -58,10 +61,7 @@
  If an error occurs, returns nil.  Use the error object to determine the failure. */
 - (NSData *)decodeFromBase64Data:(NSError **)error;
 
-/** Returns a base-64 encoded NSData based on the current data, using line formatting
- if specified by 'useOptionalLineEndings */
-- (NSData *)encodeAsBase64DataUsingLineEndings:(BOOL)useOptionalLineEndings
-                                         error:(NSError **)error;
+#pragma mark Encoders
 
 /** Creates an NSString object containing the base64 encoding of 'data' using line formatting
  if specified by 'useOptionalLineEndings'.
@@ -69,6 +69,11 @@
 + (NSString *)stringByEncodingDataAsBase64:(NSData *)data
                             withFormatting:(BOOL)useOptionalLineEndings
                                      error:(NSError **)error;
+
+/** Returns a base-64 encoded NSData based on the current data, using line formatting
+ if specified by 'useOptionalLineEndings */
+- (NSData *)encodeAsBase64DataUsingLineEndings:(BOOL)useOptionalLineEndings
+                                         error:(NSError **)error;
 
 /** Returns a base-64 encoded NSString based on the current data, using line formatting
  if specified by 'useOptionalLineEndings */
