@@ -19,14 +19,14 @@ written Java to raw C.  Fundamentally, the only changes required were for handli
 parameter passing and to unroll a 'static' function that prepared an intermediary 
 array for fast processing.
 
-Base64+categories.h.m
+MIGBase64+categories.h.m
 ---------------------
-The two files 'Base64+categories.m' and 'Base64+categories.h' are an Objective-C (ARC)
+The two files 'MIGBase64+categories.m' and 'MIGBase64+categories.h' are an Objective-C (ARC)
 wrapper on the top of the migbase64 port.
 
-Base64.h.m
+MIGBase64.h.m
 ----------
-The two files 'Base64.h' and 'Base64.m' are a (basic) class wrapper for the 
+The two files 'MIGBase64.h' and 'MIGBase64.m' are a (basic) class wrapper for the 
 provided categories.  I find it cleaner in the code (particularly when dealing with
 base64-encoded NSStrings) to hand around an explicit Base64 object - makes it
 obvious in functions what to expect the data to contain.
