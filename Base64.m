@@ -1,11 +1,11 @@
-
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Base64.m class
+// Base64.m file
 // Created by Darren Ford on 21/11/12.
 //
-// Basically a wrapper for the aforementioned functions.  Having a Base64 class means that
-// your code is much more understandable when handing objects throughout the code.
+// Basically a class wrapper for the categories specified in Base64+categories.h
+// Having a Base64 class means that your code is much more understandable when handing
+// objects throughout the code.
 //
 // Internally, all storage is done as a Base64 string.  When setters and getters are called
 // (ie. data and string) then the stored data is automatically converted before being returned
