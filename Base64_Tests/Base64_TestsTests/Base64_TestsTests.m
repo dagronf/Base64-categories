@@ -8,8 +8,8 @@
 
 #import "Base64_TestsTests.h"
 
-#import "../../Base64+categories.h"
-#import "../../Base64.h"
+#import "../../MIGBase64+categories.h"
+#import "../../MIGBase64.h"
 
 /** RFC Test vectors
  10.  Test Vectors
@@ -153,9 +153,9 @@
 {
     NSString *testPhrase = @"Testing class encoding";
     
-    Base64 *obj = [Base64 createWithString:testPhrase useFormatting:NO];
+    MIGBase64 *obj = [MIGBase64 createWithString:testPhrase useFormatting:NO];
     NSData *dat = [NSKeyedArchiver archivedDataWithRootObject:obj];
-    Base64 *decObj = [NSKeyedUnarchiver unarchiveObjectWithData:dat];
+    MIGBase64 *decObj = [NSKeyedUnarchiver unarchiveObjectWithData:dat];
     
     NSString *str = decObj.string;
     STAssertEqualObjects(str, testPhrase, @"Archive/Unarchive");

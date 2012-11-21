@@ -1,5 +1,5 @@
 //
-//  Base64+categories.m
+//  MIGBase64+categories.m
 //
 //
 // Basic Objective-C wrapper around the migbase64 fast base64 conversion routines
@@ -42,7 +42,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark NSData Base 64 additions
-@interface NSData (Base64)
+@interface NSData (MIGBase64)
 
 /** Property to provide a dirty property-style access to Base64 data
     For example,
@@ -74,7 +74,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark NSString Base 64 additions
-@interface NSString (Base64)
+@interface NSString (MIGBase64)
 
 /** Property to provide a quick property-style access to the Base64 data
     For example,

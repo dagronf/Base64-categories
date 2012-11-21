@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Base64.m file
+// MIGBase64.m file
 // Created by Darren Ford on 21/11/12.
 //
 // Basically a class wrapper for the categories specified in Base64+categories.h
@@ -40,33 +40,33 @@
  */
 
 
-#import "Base64.h"
-#import "Base64+categories.h"
+#import "MIGBase64.h"
+#import "MIGBase64+categories.h"
 
 #if !__has_feature(objc_arc)
-#error Base64+categories must be built with ARC.
+#error MIGBase64+categories must be built with ARC.
 #endif
 
-@implementation Base64
+@implementation MIGBase64
 
 + (id)create
 {
-    return [[Base64 alloc] init];
+    return [[MIGBase64 alloc] init];
 }
 
 + (id)createWithData:(NSData *)data useFormatting:(BOOL)f
 {
-    return [[Base64 alloc] initWithData:data useFormatting:f];
+    return [[MIGBase64 alloc] initWithData:data useFormatting:f];
 }
 
 + (id)createWithString:(NSString *)string useFormatting:(BOOL)f
 {
-    return [[Base64 alloc] initWithString:string useFormatting:f];
+    return [[MIGBase64 alloc] initWithString:string useFormatting:f];
 }
 
 + (id)createWithBase64:(NSString *)base64String
 {
-    return [[Base64 alloc] initWithBase64:base64String];
+    return [[MIGBase64 alloc] initWithBase64:base64String];
 }
 
 - (id)init

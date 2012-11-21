@@ -1,5 +1,5 @@
 //
-//  Base64+categories.m
+//  MIGBase64+categories.m
 //
 //
 // Basic Objective-C wrapper around the migbase64 fast base64 conversion routines
@@ -27,11 +27,11 @@
  */
 
 
-#import "Base64+categories.h"
+#import "MIGBase64+categories.h"
 #import "MIGConverter.h"
 
 #if !__has_feature(objc_arc)
-#error Base64+categories must be built with ARC.
+#error MIGBase64+categories must be built with ARC.
 #endif
 
 #pragma mark -
@@ -72,7 +72,7 @@ NSError *generateErrorStructure(MIG_Result res)
 
 #pragma mark -
 
-@implementation NSData (Base64)
+@implementation NSData (MIGBase64)
 
 #pragma mark Convenience property
 @dynamic Base64;
@@ -122,7 +122,7 @@ NSError *generateErrorStructure(MIG_Result res)
 
 #pragma mark -
 
-@implementation NSString (Base64)
+@implementation NSString (MIGBase64)
 
 #pragma mark Convenience property
 @dynamic Base64;

@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Base64.h file
+// MIGBase64.h file
 // Created by Darren Ford on 21/11/12.
 //
 // Basically a class wrapper for the categories specified in Base64+categories.h
@@ -41,7 +41,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Base64 : NSObject
+@interface MIGBase64 : NSObject
 
 #pragma mark Static creators
 + (id)create;
