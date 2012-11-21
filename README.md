@@ -14,6 +14,9 @@ attempting to reduce the time and effort to perform the conversions.
 
 As per the original MIG code, the encoding supports an optional RFC-compliant formatting.
 
+MIGBase64 requires ARC (currently), and will flag an error if built in a non-ARC
+environment
+
 Classes and categories
 ----------------------
 
@@ -67,6 +70,12 @@ Decode a Base64 encoded string into an NSData object
 
 
 ### MIGBase64 class examples
+
+Basic example of class usage
+      MIGBase64 *b64 = [[MIGBase64 alloc] init];
+      b64.data = [NSData dataWithContentsOfFile:<some path>];
+      NSString *encoded = b64.base64;
+      if (b64.lastError) { <do something with error> }
 
 Create a instance with a basic string, and grab out the components
 
