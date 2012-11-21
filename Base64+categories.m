@@ -149,6 +149,7 @@ NSError *generateErrorStructure(MIG_Result res)
     MIG_Result res;
     char *result;
     unsigned int result_len;
+    *error = nil;
     
     const char *rawString = self.UTF8String;
     if (rawString)
@@ -180,6 +181,7 @@ NSError *generateErrorStructure(MIG_Result res)
     MIG_Result res;
     unsigned char *result;
     unsigned int result_len;
+    *error = nil;
     
     const char *rawString = self.UTF8String;
     if (rawString)
@@ -211,6 +213,7 @@ NSError *generateErrorStructure(MIG_Result res)
     MIG_Result res;
     unsigned char *result;
     unsigned int result_len;
+    *error = nil;
     
     const char *rawString = self.UTF8String;
     if (rawString)
@@ -236,6 +239,104 @@ NSError *generateErrorStructure(MIG_Result res)
     // Got an error -- generate a descriptive error
     *error = generateErrorStructure(res);
     return nil;
+}
+
+@end
+
+#pragma mark -
+
+@implementation Base64
+
+- (id)init
+{
+    id s = [super init];
+    if (s)
+    {
+        _useFormatting = FALSE;
+    }
+    return s;
+}
+
+- (id)initWithData:(NSData *)data useFormatting:(BOOL)f
+{
+    id s = [super init];
+    if (s)
+    {
+        _useFormatting = f;
+        self.data = data;
+    }
+    return s;
+}
+
+- (id)initWithString:(NSString *)string useFormatting:(BOOL)f
+{
+    id s = [super init];
+    if (s)
+    {
+        _useFormatting = f;
+        self.string = string;
+    }
+    return s;
+}
+
+- (id)initWithBase64:(NSString *)base64String
+{
+    id s = [super init];
+    if (s)
+    {
+        _useFormatting = FALSE;
+        self.base64 = base64String;
+    }
+    return s;
+}
+
+- (NSString *)description
+{
+    NSString *result = [NSString stringWithFormat:@"formatting: %@\r\nBase64: %@", [NSNumber numberWithBool:_useFormatting], _base64];
+    return result;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeBool:_useFormatting forKey:@"formatting"];
+	[coder encodeObject:_base64 forKey:@"base64"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    _useFormatting = [coder decodeBoolForKey:@"formatting"];
+	_base64 = [coder decodeObjectForKey:@"base64"];
+	return self;
+}
+
+- (void)setData:(NSData *)data
+{
+    NSError *err;
+    _base64 = [data encodeAsBase64UsingLineEndings:_useFormatting error:&err];
+    _lastError = err;
+}
+
+- (void)setString:(NSString *)str
+{
+    NSError *err;
+    _base64 = [str encodeAsBase64UsingLineEndings:_useFormatting error:&err];
+    _lastError = err;
+}
+
+- (NSData *)data
+{
+    NSError *err;
+    NSData *data = [_base64 decodeBase64:&err];
+    _lastError = err;
+    return data;
+}
+
+- (NSString *)string
+{
+    NSError *err;
+    NSString *str = [_base64 decodeBase64AsString:&err];
+    _lastError = err;
+    return str;
 }
 
 @end
