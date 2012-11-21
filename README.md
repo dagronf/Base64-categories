@@ -37,10 +37,9 @@ base64-encoded NSStrings) to hand around an explicit Base64 object - makes it
 obvious in functions what to expect the data to contain.
 
 Simple examples
-===============
+---------------
 
-Basic Category examples
------------------------
+### Basic Category examples
 
 Encode a string to a Base64 String
 
@@ -58,8 +57,7 @@ Encode an NSData object to a Base64 String
       NSData *rawData = [NSData dataWithContentsOfFile:<some path>];
       NSString *result = [rawData encodeAsBase64UsingLineEndings:NO error:&err];
 
-MIGBase64 class examples
-------------------------
+### MIGBase64 class examples
 
 Create a instance with a basic string, and grab out the components
 
@@ -76,6 +74,7 @@ Base64 encode an NSData object
       NSData *rawData = [NSData dataWithContentsOfFile:<some path>];
       MIGBase64 *obj = [MIGBase64 createWithData:rawData useFormatting:YES];
       NSString *base64String = obj.base64;
+
 
 Licenses
 ========
