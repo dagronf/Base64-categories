@@ -12,20 +12,25 @@ is designed to minimise memory allocation/copying/duplication during the process
 of conversion to/from Base64.  The raw conversion code is very fast and minimal,
 attempting to reduce the time and effort to perform the conversions.
 
-MIGConverter.h.c
-----------------
+As per the original MIG code, the encoding supports an optional RFC-compliant formatting.
+
+Classes and categories
+----------------------
+
+### MIGConverter.h.c
+
 The two files 'MIGConverter.c' and 'MIGConverter.h' are ports of the code originally
 written Java to raw C.  Fundamentally, the only changes required were for handling
 parameter passing and to unroll a 'static' function that prepared an intermediary 
 array for fast processing.
 
-MIGBase64+categories.h.m
----------------------
+### MIGBase64+categories.h.m
+
 The two files 'MIGBase64+categories.m' and 'MIGBase64+categories.h' are an Objective-C (ARC)
 wrapper on the top of the migbase64 port.
 
-MIGBase64.h.m
-----------
+### MIGBase64.h.m
+
 The two files 'MIGBase64.h' and 'MIGBase64.m' are a (basic) class wrapper for the 
 provided categories.  I find it cleaner in the code (particularly when dealing with
 base64-encoded NSStrings) to hand around an explicit Base64 object - makes it
