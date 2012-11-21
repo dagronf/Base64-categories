@@ -4,40 +4,47 @@ Base64+categories
 Overview
 --------
 
-Objective-C Wrapper for the migbase64 fast Base64 conversion libraries
+C/Objective-C wrapper for the MiGBase64 fast Base64 conversion libraries [located here](http://migbase64.sourceforge.net "Original Java source code"), originally written by [Mikael Grev](http://sourceforge.net/users/mgrev "Original author") and MiG InfoCom AB.
 
-The migbase64 conversion libraries (originally written in Java) provide very fast and
-memory efficient conversion to and from Base64 encodings.  The Objective-C wrapper
-is designed to minimise memory allocation/copying/duplication during the process
-of conversion to/from Base64.  The raw conversion code is very fast and minimal,
-attempting to reduce the time and effort to perform the conversions.
+### MiGBase64 port
 
-As per the original MIG code, the encoding supports an optional RFC-compliant formatting.
+The MiGBase64 conversion libraries (originally written in Java) provide very fast and memory efficient conversion to and from Base64 encodings.  The core MiGBase64 code has been ported to pure C (MIGConverter.h.c), retaining as much of the original code style and allocation behaviours as possible.
 
-MIGBase64 requires ARC (currently), and will flag an error if built in a non-ARC
-environment
+***Note that this port is in no way associated with the original Java code or the migbase64 author***.
+
+### Objective-C support
+
+The Objective-C category and classes are designed to minimise memory allocation/copying/duplication during the process of conversion to/from Base64, maintaining the speed and performance of the original Java source whilst maintaining the use of core Objective-C primitives (NSData and NSString).
+
+### Original source link
+
+Originally ported from [revision 1.2](http://migbase64.cvs.sourceforge.net/viewvc/migbase64/migbase64/src/util/Base64.java?revision=1.2&content-type=text%2Fplain "Original MiGBase64 revision link") of the MiGBase64 library.
+
+Please note the license for the MiGBase64 library at the end of this file (BSD license).
+
+### Requirements
+
+For the Objective-C components, Base64+categories currently requires ARC and will flag an error if built in a non-ARC environment.
 
 Classes and categories
 ----------------------
 
 ### MIGConverter.h.c
 
-The two files 'MIGConverter.c' and 'MIGConverter.h' are ports of the code originally
-written Java to raw C.  Fundamentally, the only changes required were for handling
-parameter passing and to unroll a 'static' function that prepared an intermediary 
+The two files 'MIGConverter.c' and 'MIGConverter.h' are ports of the code originally written Java to raw C.  Fundamentally, the only changes required were for handling parameter passing and to unroll a 'static' function that prepared an intermediary 
 array for fast processing.
+
+The two function calls in MIGConverter.c return an internally allocated memory block for the result (when conversion is successful).  The caller MUST free() the result array or else a memory leak will occur.
+
+The core C port (MIGConverter.c.h) is completely independent of the Objective-C code, which means it can be incorporated into other projects that can import or directly access C code.
 
 ### MIGBase64+categories.h.m
 
-The two files 'MIGBase64+categories.m' and 'MIGBase64+categories.h' are an Objective-C (ARC)
-wrapper on the top of the migbase64 port.
+The two files 'MIGBase64+categories.m' and 'MIGBase64+categories.h' are an Objective-C (ARC) categories sitting on the top of the MiGBase64 port.  These files provide Base64 categories for NSData and NSString - refer to the header file for descriptions of the supplied methods.
 
 ### MIGBase64.h.m
 
-The two files 'MIGBase64.h' and 'MIGBase64.m' are a (basic) class wrapper for the 
-provided categories.  I find it cleaner in the code (particularly when dealing with
-base64-encoded NSStrings) to hand around an explicit Base64 object - makes it
-obvious in functions what to expect the data to contain.
+The two files 'MIGBase64.h' and 'MIGBase64.m' are a (basic) class wrapper for the provided categories.  I find it cleaner in the code (particularly when dealing with base64-encoded NSStrings) to hand around an explicit Base64 object - makes it obvious in functions what to expect when you're handed the data by another function.
 
 Simple examples
 ---------------
@@ -107,60 +114,60 @@ Licenses
 
 License for Base64+categories (MIT)
 -----------------------------------
-/**
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- * Redistributions of source code must retain the above copyright notice, this list
- * of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this
- * list of conditions and the following disclaimer in the documentation and/or other
- * materials provided with the distribution.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
- * IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
- * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
- * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
- * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
- * OF SUCH DAMAGE. 
- */
+
+    Redistribution and use in source and binary forms, with or without modification,
+    are permitted provided that the following conditions are met:
+    Redistributions of source code must retain the above copyright notice, this list
+    of conditions and the following disclaimer.
+    Redistributions in binary form must reproduce the above copyright notice, this
+    list of conditions and the following disclaimer in the documentation and/or other
+    materials provided with the distribution.
+    
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+    IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+    INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+    BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+    OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+    OF SUCH DAMAGE. 
  
 Licence for migbase64 (BSD)
 ---------------------------
 
-/* Licence (BSD):
- * ==============
- *
- * Copyright (c) 2004, Mikael Grev, MiG InfoCom AB. (base64 @ miginfocom . com)
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- * Redistributions of source code must retain the above copyright notice, this list
- * of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this
- * list of conditions and the following disclaimer in the documentation and/or other
- * materials provided with the distribution.
- * Neither the name of the MiG InfoCom AB nor the names of its contributors may be
- * used to endorse or promote products derived from this software without specific
- * prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
- * IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
- * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
- * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
- * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
- * OF SUCH DAMAGE.
- *
- * @version 2.2
- * @author Mikael Grev
- *         Date: 2004-aug-02
- *         Time: 11:31:11
- */
+    Licence (BSD):
+    ==============
+    
+    Copyright (c) 2004, Mikael Grev, MiG InfoCom AB. (base64 @ miginfocom . com)
+    All rights reserved.
+    
+    Redistribution and use in source and binary forms, with or without modification,
+    are permitted provided that the following conditions are met:
+    Redistributions of source code must retain the above copyright notice, this list
+    of conditions and the following disclaimer.
+    Redistributions in binary form must reproduce the above copyright notice, this
+    list of conditions and the following disclaimer in the documentation and/or other
+    materials provided with the distribution.
+    Neither the name of the MiG InfoCom AB nor the names of its contributors may be
+    used to endorse or promote products derived from this software without specific
+    prior written permission.
+    
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+    IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+    INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+    BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+    OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+    OF SUCH DAMAGE.
+    
+    @version 2.2
+    @author Mikael Grev
+            Date: 2004-aug-02
+            Time: 11:31:11
+
+
