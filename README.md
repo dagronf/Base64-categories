@@ -50,12 +50,21 @@ Decode a Base64 encoded string into a string
       NSError *err;
       NSString *encodedVector = @"Zm9vYmFy";
       NSString *result = [encodedVector decodeBase64AsString:&err];
+      if (err) { <do something with error> }
 
 Encode an NSData object to a Base64 String
 
       NSError *err;
       NSData *rawData = [NSData dataWithContentsOfFile:<some path>];
       NSString *result = [rawData encodeAsBase64UsingLineEndings:NO error:&err];
+      if (err) { <do something with error> }
+
+Decode a Base64 encoded string into an NSData object
+
+      NSError *err;
+      NSData *rawData = [base64EncodedNSString decodeBase64:&err];
+      if (err) { <do something with error> }
+
 
 ### MIGBase64 class examples
 
@@ -63,6 +72,7 @@ Create a instance with a basic string, and grab out the components
 
       NSString *testPhrase = @"Testing class encoding";
       MIGBase64 *b64 = [MIGBase64 createWithString:testPhrase useFormatting:YES];
+      if (b64.lastError) { <do something with error> }
     
       NSData *decodedData = b64.data;          // NSData representation of 'testPhrase'
       NSString *decodedString = b64.string;    // NSString representation of 'testPhrase'
@@ -72,9 +82,16 @@ Base64 encode an NSData object
 
       NSError *err;
       NSData *rawData = [NSData dataWithContentsOfFile:<some path>];
-      MIGBase64 *obj = [MIGBase64 createWithData:rawData useFormatting:YES];
+      MIGBase64 *b64 = [MIGBase64 createWithData:rawData useFormatting:YES];
+      if (b64.lastError) { <do something with error> }
       NSString *base64String = obj.base64;
 
+Decode a Base64 String
+
+      NSError *err;
+      MIGBase64 *obj = [MIGBase64 createWithBase64:base64EncodedString];
+      if (obj.lastError) { <do something with error> }
+      NSData *data = obj.data;
 
 Licenses
 ========
