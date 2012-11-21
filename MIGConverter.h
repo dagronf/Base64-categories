@@ -1,17 +1,15 @@
-//
-//  MIGConverter.h
-//
-//  Created by Darren Ford on 22/10/12.
-//
+/*
+    MIGConverter.h
+    A C port of the fast Base64 encoding/decoding routines in the migbase64 project
+ 
+    Port created by Darren Ford on 22/10/12.
 
-//  A C port of the fast Base64 encoding/decoding routines in the migbase64 project
-//
-//  Ported from
-//  http://migbase64.cvs.sourceforge.net/viewvc/migbase64/migbase64/src/util/Base64.java?revision=1.2&content-type=text%2Fplain
-//
-//  As much of the original code style and allocation is preserved as possible
-//  Note that this port is in no way associated with the original Java code or the migbase64 author
-//
+    Ported from
+    http://migbase64.cvs.sourceforge.net/viewvc/migbase64/migbase64/src/util/Base64.java?revision=1.2&content-type=text%2Fplain
+
+    As much of the original code style and allocation is preserved as possible
+    Note that this port is in no way associated with the original Java code or the migbase64 author
+*/
 
 #pragma mark -
 #pragma mark MIGBase64 licence agreement
@@ -89,21 +87,41 @@
 
 typedef enum eMIG_Result
 {
-    MIG_OK = 0,
-    MIG_InputDataEmpty = -1,
-    MIG_NoMemory = -2,
-    MIG_Base64StringEmpty = -3,
-    MIG_Base64EncodingInvalid = -4,
-    MIG_Base64UnknownError = -5,
+    MIG_OK = 0,                         /* Conversion successful */
+    MIG_InputDataEmpty = -1,            /* No input data was supplied (sArr == NULL) */
+    MIG_NoMemory = -2,                  /* Could not allocate memory for result array */
+    MIG_Base64StringEmpty = -3,         /* Supplied Base64 string for decoding was NULL */
+    MIG_Base64EncodingInvalid = -4,     /* Base64 string for decoding wasn't valid Base64 */
+    MIG_Base64UnknownError = -5,        /* An unknown error occurred */
 } MIG_Result;
 
-
+/** 
+    Encodes the supplied byte array 'sArr' into the result array 'result'.
+    Parameters :-
+      useOptionalLineEndings:  0 == unformated, all else == formatted
+      sArr: the byte array to be converted
+      sLen: the length of the supplied array 'sArr'
+      result: the resulting encoded array.  Caller must free() the returned memory.
+      resultLen: the length (in bytes) of the result array 'result'.
+    Returns :-
+      The status of the call (see eMIG_Result enum)
+*/
 MIG_Result MIG_encodeAsBase64(int useOptionalLineEndings,
                               const unsigned char *sArr,
                               unsigned int sLen,
                               char **result,
                               unsigned int *resultLen);
 
+/** 
+    Decodes the supplied Base64 encoded array 'sArr' into the result array 'result'.
+    Parameters :-
+      sArr: the byte array to be decoded
+      sLen: the length of the supplied array 'sArr'
+      result: the resulting decoded array.  Caller must free() the returned memory.
+      resultLen: the length (in bytes) of the result array 'result'.
+    Returns :-
+      The status of the call (see eMIG_Result enum)
+*/
 MIG_Result MIG_decodeAsBase64(const char *sArr,
                               unsigned int sLen,
                               unsigned char **result,

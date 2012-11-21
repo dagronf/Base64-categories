@@ -1,17 +1,16 @@
-//
-//  MIGConverter.c
-//
-//  Ported by Darren Ford on 22/10/12.
-//
+/*
+    MIGConverter.h
+    A C port of the fast Base64 encoding/decoding routines in the migbase64 project
+ 
+    Port created by Darren Ford on 22/10/12.
+ 
+    Ported from
+    http://migbase64.cvs.sourceforge.net/viewvc/migbase64/migbase64/src/util/Base64.java?revision=1.2&content-type=text%2Fplain
+ 
+    As much of the original code style and allocation is preserved as possible
+    Note that this port is in no way associated with the original Java code or the migbase64 author
+ */
 
-//  A C port of the fast Base64 encoding/decoding routines in the migbase64 project
-//
-//  Ported from
-//  http://migbase64.cvs.sourceforge.net/viewvc/migbase64/migbase64/src/util/Base64.java?revision=1.2&content-type=text%2Fplain
-//
-//  As much of the original code style and allocation is preserved as possible
-//  Note that this port is in no way associated with the original Java code or the migbase64 author
-//
 
 /** A very fast and memory efficient class to encode and decode to and from BASE64 in full accordance
  * with RFC 2045.<br><br>
@@ -122,46 +121,46 @@ MIG_Result MIG_encodeAsBase64(int useOptionalLineEndings,
                               char **result,
                               unsigned int *resultLen)
 {
-    // Check special case
+    /* Check special case */
     if (sArr == NULL)
     {
-        // Special case -- shouldn't deal with it
+        /* Special case -- shouldn't deal with it */
         return MIG_InputDataEmpty;
     }
     else if (sLen == 0)
     {
-        // Empty string -- return empty string according to RFC
+        /* Empty string -- return empty string according to RFC */
         *result = (char *)calloc(1, sizeof(char));
         *resultLen = 0;
         return MIG_OK;
     }
     
-    int eLen = (sLen / 3) * 3;              // Length of even 24-bits.
-    int cCnt = ((sLen - 1) / 3 + 1) << 2;   // Returned character count
-    int dLen = cCnt + ((useOptionalLineEndings==1) ? (cCnt - 1) / 76 << 1 : 0); // Length of returned array
+    int eLen = (sLen / 3) * 3;              /* Length of even 24-bits. */
+    int cCnt = ((sLen - 1) / 3 + 1) << 2;   /* Returned character count */
+    int dLen = cCnt + ((useOptionalLineEndings==1) ? (cCnt - 1) / 76 << 1 : 0); /* Length of returned array */
 
-    // Create the storage array.  When complete, the array will become contained
-    // within the returned NSString object, so it will be freed when the result
-    // object is released.
+    /* Create the storage array.  When complete, the array will become contained
+       within the returned NSString object, so it will be freed when the result
+       object is released. */
     char *dArr = (char *)calloc(dLen, sizeof(char));
     if (dArr == NULL)
     {
         return MIG_NoMemory;
     }
     
-    // Encode even 24-bits
+    /* Encode even 24-bits */
     for (int s = 0, d = 0, cc = 0; s < eLen;)
     {
-        // Copy next three bytes into lower 24 bits of int, paying attension to sign.
+        /* Copy next three bytes into lower 24 bits of int, paying attension to sign. */
         int i = (sArr[s++] & 0xff) << 16 | (sArr[s++] & 0xff) << 8 | (sArr[s++] & 0xff);
         
-        // Encode the int into four chars
+        /* Encode the int into four chars */
         dArr[d++] = CA[(i >> 18) & 0x3f];
         dArr[d++] = CA[(i >> 12) & 0x3f];
         dArr[d++] = CA[(i >> 6) & 0x3f];
         dArr[d++] = CA[i & 0x3f];
         
-        // Add optional line separator
+        /* Add optional line separator */
         if ((useOptionalLineEndings==1) && ++cc == 19 && d < dLen - 2)
         {
             dArr[d++] = '\r';
@@ -170,14 +169,14 @@ MIG_Result MIG_encodeAsBase64(int useOptionalLineEndings,
         }
     }
     
-    // Pad and encode last bits if source isn't even 24 bits.
-    int left = sLen - eLen; // 0 - 2.
+    /* Pad and encode last bits if source isn't even 24 bits. */
+    int left = sLen - eLen; /* 0 - 2. */
     if (left > 0)
     {
-        // Prepare the int
+        /* Prepare the int */
         int i = ((sArr[eLen] & 0xff) << 10) | (left == 2 ? ((sArr[sLen - 1] & 0xff) << 2) : 0);
         
-        // Set last four chars
+        /* Set last four chars */
         dArr[dLen - 4] = CA[i >> 12];
         dArr[dLen - 3] = CA[(i >> 6) & 0x3f];
         dArr[dLen - 2] = left == 2 ? CA[i & 0x3f] : '=';
@@ -208,16 +207,16 @@ MIG_Result MIG_decodeAsBase64(const char *sArr,
     }
     else if (sLen == 0)
     {
-        // Empty string -- return empty string according to RFC
+        /* Empty string -- return empty string according to RFC */
         *result = (unsigned char *)calloc(1, sizeof(unsigned char));
         *resultLen = 0;
         return MIG_OK;
     }
     
-    // Count illegal characters (including '\r', '\n') to know what size the returned array will be,
-    // so we don't have to reallocate & copy it later.
-    int sepCnt = 0; // Number of separator characters. (Actually illegal characters, but that's a bonus...)
-    for (int i = 0; i < sLen; i++)  // If input is "pure" (I.e. no line separators or illegal chars) base64 this loop can be commented out.
+    /* Count illegal characters (including '\r', '\n') to know what size the returned array will be,
+       so we don't have to reallocate & copy it later. */
+    int sepCnt = 0; /* Number of separator characters. (Actually illegal characters, but that's a bonus...) */
+    for (int i = 0; i < sLen; i++)  /* If input is "pure" (I.e. no line separators or illegal chars) base64 this loop can be commented out. */
     {
         char c = sArr[i];
         if (IA[c] < 0)
@@ -226,7 +225,7 @@ MIG_Result MIG_decodeAsBase64(const char *sArr,
         }
     }
     
-    // Check so that legal chars (including '=') are evenly divideable by 4 as specified in RFC 2045.
+    /* Check so that legal chars (including '=') are evenly divideable by 4 as specified in RFC 2045. */
     if ((sLen - sepCnt) % 4 != 0)
     {
         return MIG_Base64EncodingInvalid;
@@ -250,11 +249,11 @@ MIG_Result MIG_decodeAsBase64(const char *sArr,
     
     for (int s = 0, d = 0; d < dLen;)
     {
-        // Assemble three bytes into an int from four "valid" characters.
+        /* Assemble three bytes into an int from four "valid" characters. */
         int i = 0;
         for (int j = 0; j < 4; j++, s++)
         {
-            // j only increased if a valid char was found.
+            /* j only increased if a valid char was found. */
             char r = sArr[s];
             int c = IA[r];
             if (c >= 0)
@@ -262,7 +261,7 @@ MIG_Result MIG_decodeAsBase64(const char *sArr,
             else
                 j--;
         }
-        // Add the bytes
+        /* Add the bytes */
         dArr[d++] = (unsigned char) (i >> 16);
         if (d < dLen)
         {
@@ -295,35 +294,35 @@ MIG_Result MIG_decodeAsBase64Fast(const char *sArr,
                                   unsigned char **result,
                                   unsigned int *resultLen)
 {
-    // Check special case
+    /* Check special case */
     if (sArr == NULL)
     {
         return MIG_InputDataEmpty;
     }
     else if (sLen == 0)
     {
-        // Empty string -- return empty string according to RFC
+        /* Empty string -- return empty string according to RFC */
         *result = (unsigned char *)calloc(1, sizeof(unsigned char));
         *resultLen = 0;
         return MIG_OK;
     }
     
-    int sIx = 0, eIx = sLen - 1;    // Start and end index after trimming.
+    int sIx = 0, eIx = sLen - 1;    /* Start and end index after trimming. */
     
-    // Trim illegal chars from start
+    /* Trim illegal chars from start */
     while (sIx < eIx && IA[sArr[sIx] & 0xff] < 0)
         sIx++;
     
-    // Trim illegal chars from end
+    /* Trim illegal chars from end */
     while (eIx > 0 && IA[sArr[eIx] & 0xff] < 0)
         eIx--;
     
-    // get the padding count (=) (0, 1 or 2)
-    int pad = sArr[eIx] == '=' ? (sArr[eIx - 1] == '=' ? 2 : 1) : 0;  // Count '=' at end.
-    int cCnt = eIx - sIx + 1;   // Content count including possible separators
+    /* get the padding count (=) (0, 1 or 2) */
+    int pad = sArr[eIx] == '=' ? (sArr[eIx - 1] == '=' ? 2 : 1) : 0;  /* Count '=' at end. */
+    int cCnt = eIx - sIx + 1;   /* Content count including possible separators */
     int sepCnt = sLen > 76 ? (sArr[76] == '\r' ? cCnt / 78 : 0) << 1 : 0;
     
-    int dLen = ((cCnt - sepCnt) * 6 >> 3) - pad; // The number of decoded bytes
+    int dLen = ((cCnt - sepCnt) * 6 >> 3) - pad; /* The number of decoded bytes */
 
     unsigned char *dArr = (unsigned char *)calloc(dLen, sizeof(unsigned char));
     if (dArr == NULL)
@@ -331,19 +330,19 @@ MIG_Result MIG_decodeAsBase64Fast(const char *sArr,
         return MIG_NoMemory;
     }
     
-    // Decode all but the last 0 - 2 bytes.
+    /* Decode all but the last 0 - 2 bytes. */
     int d = 0;
     for (int cc = 0, eLen = (dLen / 3) * 3; d < eLen;)
     {
-        // Assemble three bytes into an int from four "valid" characters.
+        /* Assemble three bytes into an int from four "valid" characters. */
         int i = IA[sArr[sIx++]] << 18 | IA[sArr[sIx++]] << 12 | IA[sArr[sIx++]] << 6 | IA[sArr[sIx++]];
         
-        // Add the bytes
+        /* Add the bytes */
         dArr[d++] = (unsigned char) (i >> 16);
         dArr[d++] = (unsigned char) (i >> 8);
         dArr[d++] = (unsigned char) i;
         
-        // If line separator, jump over it.
+        /* If line separator, jump over it. */
         if (sepCnt > 0 && ++cc == 19) {
             sIx += 2;
             cc = 0;
@@ -352,7 +351,7 @@ MIG_Result MIG_decodeAsBase64Fast(const char *sArr,
     
     if (d < dLen)
     {
-        // Decode last 1-3 bytes (incl '=') into 1-3 bytes
+        /* Decode last 1-3 bytes (incl '=') into 1-3 bytes */
         int i = 0;
         for (int j = 0; sIx <= eIx - pad; j++)
             i |= IA[sArr[sIx++]] << (18 - j * 6);
