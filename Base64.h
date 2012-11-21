@@ -55,7 +55,7 @@
 @property BOOL useFormatting;
 
 /** The encapsulated base64 string */
-@property NSString *base64;
+@property (retain) NSString *base64;
 
 /** Setter and getter for raw data */
 @property NSData *data;
